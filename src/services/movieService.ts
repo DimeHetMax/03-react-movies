@@ -13,12 +13,12 @@ const api: AxiosInstance = axios.create({
 interface FetchMoviesResponse {
   results: Movie[];
 }
-const fetchMovie = async (movieName: string) => {
+const fetchMovie = async (movieName: string): Promise<Movie[]>=> {
   const response = await api.get<FetchMoviesResponse>("", {
     params: {
       query: `${movieName}`,
     },
   });
-  return response.data;
+  return response.data.results;
 };
 export default fetchMovie;

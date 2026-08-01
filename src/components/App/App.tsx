@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createPortal } from "react-dom";
 import toast, { Toaster } from "react-hot-toast";
 import SearchBar from "../SearchBar/SearchBar";
 import MovieGrid from "../MovieGrid/MovieGrid";
@@ -20,10 +19,10 @@ function App() {
       setIsLoadingMovies(true);
       setIsErrorMovies(false);
       const response = await fetchMovie(query);
-      if (response.results.length === 0) {
+      if (response.length === 0) {
         toast("No movies found for your request.");
       }
-      setMovies(response.results);
+      setMovies(response);
     } catch (error) {
       console.log(error);
       setIsErrorMovies(true);
@@ -45,12 +44,9 @@ function App() {
       {!isLoadingMovies && !isErrorMovies && movies.length > 0 && (
         <MovieGrid movies={movies} onSelect={onSelectMovie} />
       )}
-      {selectedMovie &&
-        createPortal(
-          <MovieModal movie={selectedMovie} onClose={onCloseModal} />,
-          document.body,
-        )}
-
+      {selectedMovie && (
+        <MovieModal movie={selectedMovie} onClose={onCloseModal} />
+      )}
       <Toaster />
     </div>
   );

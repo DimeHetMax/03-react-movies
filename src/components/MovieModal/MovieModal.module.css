@@ -85,6 +85,6 @@
 .closeButton:focus {
     outline: 2px solid #007bff;
 }
-body:has(>.backdrop){
+/* body:has(>.backdrop){
  overflow: hidden;
-}
+} */
