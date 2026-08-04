@@ -1,57 +1,98 @@
 .header {
-    padding: 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 20px;
+  margin-bottom: 32px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
 }
 
 .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.link {
-    font-size: 16px;
-    font-weight: 500;
-    color: #0a66c2;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.link:hover {
-    color: #004182;
-    text-decoration: underline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .form {
-    display: flex;
-    gap: 8px;
-    flex-wrap: nowrap;
+  display: flex;
+  flex: 1 1 420px;
+  gap: 10px;
 }
 
 .input {
-    padding: 10px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 240px;
+  min-width: 0;
+  flex: 1;
+  padding: 11px 14px;
+  color: var(--color-text);
+  background-color: #ffffff;
+  border: 1px solid #cbd5d0;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: #89938f;
+}
+
+.input:hover {
+  border-color: #9eaaa5;
+}
+
+.input:focus {
+  background-color: #ffffff;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(47, 111, 103, 0.13);
 }
 
 .button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #0a66c2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 11px 22px;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .button:hover {
-    background-color: #004182;
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  box-shadow: 0 7px 16px rgba(47, 111, 103, 0.18);
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .header {
+    margin-bottom: 24px;
+    padding: 14px;
+  }
+
+  .form {
+    flex-basis: 100%;
+  }
+
+  .button {
+    padding-inline: 16px;
+  }
 }

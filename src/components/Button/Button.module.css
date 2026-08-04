@@ -1,0 +1,30 @@
+.button {
+  padding: 10px 18px;
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-soft);
+  border: 1px solid rgba(47, 111, 103, 0.25);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.button:hover {
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 7px 16px rgba(47, 111, 103, 0.17);
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}

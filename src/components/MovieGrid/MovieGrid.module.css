@@ -1,54 +1,91 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    max-width: 1440px;
-    margin: 0 auto;
-    gap: 12px;
-    list-style: none;
-    padding: 0;
-    padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 0 28px;
+  list-style: none;
+}
+
+.grid > li {
+  min-width: 0;
 }
 
 .card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #222;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  background-color: #dfe5e1;
+  border: 1px solid rgba(47, 72, 65, 0.12);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: rgba(47, 111, 103, 0.38);
+  box-shadow: 0 16px 32px rgba(30, 48, 43, 0.16);
+  transform: translateY(-5px);
 }
 
 .image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.035);
 }
 
 .title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    margin: 0;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.85);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    box-sizing: border-box;
-    text-align: center;
-    transition: background 0.3s ease;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 34px 14px 14px;
+  color: #ffffff;
+  background: linear-gradient(transparent, rgba(16, 25, 22, 0.94));
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.3;
+  text-align: left;
 }
 
-.card:hover .title {
-    background: rgba(0, 0, 0, 0.8);
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card {
+    border-radius: 11px;
+  }
+
+  .title {
+    padding: 28px 10px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image {
+    transition: none;
+  }
 }

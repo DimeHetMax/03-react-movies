@@ -1,11 +1,15 @@
 import styles from "./SearchBar.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import type { Movie } from "../../types/movie";
+import Button from "../Button/Button";
 
 interface SearchBarProps {
+  movies: Movie[];
+  onClearMovies: () => void;
   onSubmit: (query: string) => void;
 }
 
-const SearchBar = ({ onSubmit }: SearchBarProps) => {
+const SearchBar = ({ onSubmit, movies, onClearMovies }: SearchBarProps) => {
   const handleForm = (formData: FormData) => {
     const query = String(formData.get("query") ?? "").trim() as string;
 
@@ -19,15 +23,6 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
     <header className={styles.header}>
       {" "}
       <div className={styles.container}>
-        {" "}
-        <a
-          className={styles.link}
-          href="https://www.themoviedb.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by TMDB{" "}
-        </a>{" "}
         <form className={styles.form} action={handleForm}>
           {" "}
           <input
@@ -42,6 +37,13 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
             Search{" "}
           </button>{" "}
         </form>{" "}
+        {movies.length>0 && (
+          <Button
+            buttonText="Clear Search"
+            buttonType="button"
+            handleButton={onClearMovies}
+          />
+        )}
       </div>
       <Toaster />
     </header>
