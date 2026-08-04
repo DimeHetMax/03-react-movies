@@ -1,11 +1,7 @@
 .header {
   margin-bottom: 32px;
-  padding: 22px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
+  padding: 18px 0;
+  border-bottom: 1px solid #2f2f2f;
 }
 
 .container {
@@ -21,71 +17,66 @@
 .form {
   display: flex;
   flex: 1 1 420px;
-  gap: 10px;
+  gap: 8px;
 }
 
 .input {
   min-width: 0;
   flex: 1;
-  padding: 11px 14px;
-  color: var(--color-text);
-  background-color: #ffffff;
-  border: 1px solid #cbd5d0;
-  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: #ffffff;
+  background-color: #232323;
+  border: 1px solid #5a5a5a;
+  border-radius: 3px;
   font-size: 16px;
   outline: none;
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .input::placeholder {
-  color: #89938f;
+  color: #9b9b9b;
 }
 
 .input:hover {
-  border-color: #9eaaa5;
+  border-color: #808080;
 }
 
 .input:focus {
-  background-color: #ffffff;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 4px rgba(47, 111, 103, 0.13);
+  background-color: #2b2b2b;
+  border-color: #ffffff;
 }
 
 .button {
-  padding: 11px 22px;
+  padding: 12px 24px;
   color: #ffffff;
   background-color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  border-radius: var(--radius-sm);
-  font-size: 16px;
-  font-weight: 650;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: background-color 0.18s ease;
 }
 
 .button:hover {
+  background-color: #f6121d;
+}
+
+.button:active {
   background-color: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
-  box-shadow: 0 7px 16px rgba(47, 111, 103, 0.18);
-  transform: translateY(-1px);
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid #ffffff;
   outline-offset: 3px;
 }
 
 @media (max-width: 560px) {
   .header {
     margin-bottom: 24px;
-    padding: 14px;
+    padding: 12px 0 18px;
   }
 
   .form {

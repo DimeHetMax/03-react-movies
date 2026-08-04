@@ -2,33 +2,29 @@
   position: sticky;
   z-index: 1000;
   top: 0;
-  padding: 14px 20px;
+  padding: 0 20px;
   margin-bottom: 24px;
-  background: rgba(250, 249, 245, 0.9);
-  border-bottom: 1px solid rgba(205, 214, 208, 0.82);
-  box-shadow: 0 8px 28px rgba(35, 51, 47, 0.07);
-  backdrop-filter: blur(14px);
+  background-color: rgba(20, 20, 20, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
+  width: 100%;
   max-width: 1320px;
+  min-height: 68px;
   margin: 0 auto;
 }
 
 .list {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 24px;
   margin: 0;
-  padding: 4px;
-  background-color: rgba(232, 237, 233, 0.8);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  box-shadow: inset 0 1px 2px rgba(8, 66, 152, 0.06);
+  padding: 0;
   list-style: none;
 }
 
@@ -36,24 +32,20 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--color-accent-dark);
+  color: #ffffff;
   text-decoration: none;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
 }
 
 .logoMark {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  padding-left: 2px;
+  width: 34px;
+  height: 34px;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--color-accent), #668b72);
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(47, 111, 103, 0.2);
+  background-color: var(--color-accent);
+  border-radius: 3px;
   font-size: 15px;
+  font-weight: 800;
 }
 
 .logoCaption,
@@ -65,92 +57,78 @@
 .logoCaption {
   margin-bottom: 3px;
   color: var(--color-muted);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .logoName {
-  font-size: 18px;
+  color: var(--color-accent);
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.04em;
 }
 
-.logo:hover {
-  color: #557c66;
-  transform: translateY(-1px);
+.logo:hover .logoName {
+  color: #f6121d;
 }
 
-.logo:focus-visible {
-  border-radius: 12px;
-  outline: 2px solid var(--color-accent);
+.logo:focus-visible,
+.link:focus-visible {
+  outline: 2px solid #ffffff;
   outline-offset: 4px;
 }
 
 .link {
   display: inline-block;
-  padding: 9px 18px;
-  color: var(--color-accent-dark);
-  font-size: 16px;
-  font-weight: 600;
+  padding: 24px 0 22px;
+  color: #e5e5e5;
+  font-size: 14px;
+  font-weight: 400;
   text-decoration: none;
-  border-radius: 999px;
+  border-bottom: 2px solid transparent;
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+    color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .link:hover {
-  color: var(--color-accent-dark);
-  background-color: #ffffff;
-  transform: translateY(-1px);
+  color: #b3b3b3;
 }
 
-.link:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.active {
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-  box-shadow: 0 5px 12px rgba(47, 111, 103, 0.2);
-}
-
+.active,
 .active:hover {
   color: #ffffff;
-  background: linear-gradient(135deg, #2a655e, #1f4d46);
+  border-bottom-color: var(--color-accent);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .header {
-    padding: 10px 16px;
-    margin-bottom: 18px;
+    padding: 0 16px;
+    margin-bottom: 16px;
   }
 
   .nav {
-    flex-wrap: wrap;
-    gap: 10px 16px;
+    gap: 16px;
+    min-height: 58px;
   }
 
   .list {
-    gap: 2px;
+    gap: 14px;
   }
 
   .link {
-    padding: 8px 13px;
-    font-size: 14px;
+    padding: 20px 0 18px;
+    font-size: 13px;
   }
 
-  .logoMark {
-    width: 34px;
-    height: 34px;
+  .logoMark,
+  .logoCaption {
+    display: none;
   }
 
   .logoName {
-    font-size: 16px;
+    font-size: 18px;
   }
 }

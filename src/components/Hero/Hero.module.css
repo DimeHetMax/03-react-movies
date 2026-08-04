@@ -1,14 +1,13 @@
 .hero {
   overflow: hidden;
-  margin-bottom: 48px;
-  background-color: #1d2825;
-  border: 1px solid rgba(47, 111, 103, 0.2);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  margin-bottom: 44px;
+  background-color: #000000;
+  border-radius: 4px;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.42);
 }
 
 .swiper {
-  height: clamp(280px, 48vw, 620px);
+  height: clamp(300px, 46vw, 620px);
   --swiper-theme-color: #ffffff;
 }
 
@@ -22,32 +21,29 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 22, 20, 0.04) 40%,
-    rgba(14, 22, 20, 0.48) 100%
-  );
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 48%),
+    linear-gradient(0deg, #141414 0%, transparent 24%);
   pointer-events: none;
 }
 
 .image {
   height: 100%;
   object-fit: cover;
-  transition: transform 6s ease;
+  transition: transform 8s ease;
 }
 
 .slide:hover .image {
-  transform: scale(1.025);
+  transform: scale(1.02);
 }
 
 @media (max-width: 767px) {
   .hero {
     margin-bottom: 32px;
-    border-radius: var(--radius-md);
   }
 
   .swiper {
-    height: clamp(240px, 62vw, 380px);
+    height: clamp(230px, 58vw, 360px);
   }
 }
 
