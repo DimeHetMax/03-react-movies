@@ -100,13 +100,13 @@ const HomePage = () => {
     setSelectedMovie(null);
   };
   const handlePagePagination = (nextPage: number) => {
-    setSsLoadingTopMovies(true);
-    setIsErrorTopMovies(false);
+    // setSsLoadingTopMovies(true);
+    // setIsErrorTopMovies(false);
     setPageNumber(nextPage);
   };
   const handleUpcomingPagination = (nextPage: number) => {
-    setIsLoadingUpcomingMovies(true)
-    setIsErrorUpcomingMovies(false)
+    // setIsLoadingUpcomingMovies(true)
+    // setIsErrorUpcomingMovies(false)
     setPageNumberUpcomingMovies(nextPage);
   };
   return (
