@@ -11,7 +11,12 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import TopMovies from "../../components/TopMovies/TopMovies";
 import UpcomingMovies from "../../components/UpcomingMovies/UpcomingMovies";
 // Types
-import type { PopularMovie, Movie, TopRatingMovie, UpcomingMovie} from "../../types/movie";
+import type {
+  PopularMovie,
+  Movie,
+  TopRatingMovie,
+  UpcomingMovie,
+} from "../../types/movie";
 // Services
 import popularMoviesService from "../../services/popularMoviesService";
 import fectchTopRatingMovies from "../../services/topRatingService";
@@ -62,7 +67,6 @@ const HomePage = () => {
     fectchTopRatingMovies(pageNumber)
       .then((data) => {
         setTopMovies(data.results);
-        setPageNumber(data.page);
         setTotalPages(data.total_pages);
       })
       .catch((error) => {
@@ -78,7 +82,6 @@ const HomePage = () => {
     fetchUpcomingMovies(pageNumberUpcomingMovies)
       .then((data) => {
         setUpcomingMovies(data.results);
-        setPageNumberUpcomingMovies(data.page);
         setTotalPagesUpcomingMovies(data.total_pages);
       })
       .catch((error) => {
@@ -97,9 +100,13 @@ const HomePage = () => {
     setSelectedMovie(null);
   };
   const handlePagePagination = (nextPage: number) => {
+    setSsLoadingTopMovies(true);
+    setIsErrorTopMovies(false);
     setPageNumber(nextPage);
   };
- const handleUpcomingPagination = (nextPage: number) => {
+  const handleUpcomingPagination = (nextPage: number) => {
+    setIsLoadingUpcomingMovies(true)
+    setIsErrorUpcomingMovies(false)
     setPageNumberUpcomingMovies(nextPage);
   };
   return (
@@ -130,18 +137,20 @@ const HomePage = () => {
             />
           )}
 
-           {isLoadingUpcomingMovies && <Loader />}
+          {isLoadingUpcomingMovies && <Loader />}
           {isErrorUpcomingMovies && <ErrorMessage />}
 
-          {!isLoadingUpcomingMovies && !isErrorUpcomingMovies && upcomingMovies.length > 0 && (
-            <UpcomingMovies
-              topMovies={upcomingMovies}
-              pageNumber={pageNumberUpcomingMovies}
-              totalPages={totalPagesUpcomingMovies}
-              handlePagePagination={handleUpcomingPagination}
-              onSelectMovie={onSelectMovie}
-            />
-          )}
+          {!isLoadingUpcomingMovies &&
+            !isErrorUpcomingMovies &&
+            upcomingMovies.length > 0 && (
+              <UpcomingMovies
+                topMovies={upcomingMovies}
+                pageNumber={pageNumberUpcomingMovies}
+                totalPages={totalPagesUpcomingMovies}
+                handlePagePagination={handleUpcomingPagination}
+                onSelectMovie={onSelectMovie}
+              />
+            )}
         </Container>
       </main>
       {selectedMovie && (
